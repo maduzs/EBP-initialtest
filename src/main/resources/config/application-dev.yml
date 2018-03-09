@@ -33,8 +33,8 @@ spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:h2:file:./target/h2db/db/myapp;DB_CLOSE_DELAY=-1
-        username: myApp
-        password:
+        username: postgres
+        password: admin
     h2:
         console:
             enabled: false

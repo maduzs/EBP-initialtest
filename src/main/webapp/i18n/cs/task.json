@@ -1,0 +1,24 @@
+
+{
+    "myApp": {
+        "task" : {
+            "home": {
+                "title": "Tasks",
+                "createLabel": "Vytvořit Task",
+                "createOrEditLabel": "Vytvořit nebo upravit Task"
+            },
+            "created": "Byl vytvořen potomek entity Task s identifikátorem {{ param }}",
+            "updated": "Potomek entity Task s identifikátorem {{ param }} byl upravený.",
+            "deleted": "Potomek entity Task s identifikátorem {{ param }} bol smazaný.",
+            "delete": {
+                "question": "Jste si jisti, že chcete smazat Task {{ id }}?"
+            },
+            "detail": {
+                "title": "Task"
+            },
+            "title": "Title",
+            "description": "Description",
+            "job": "Job"
+        }
+    }
+}

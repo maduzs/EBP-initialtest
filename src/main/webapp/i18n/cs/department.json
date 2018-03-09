@@ -1,0 +1,24 @@
+
+{
+    "myApp": {
+        "department" : {
+            "home": {
+                "title": "Departments",
+                "createLabel": "Vytvořit Department",
+                "createOrEditLabel": "Vytvořit nebo upravit Department"
+            },
+            "created": "Byl vytvořen potomek entity Department s identifikátorem {{ param }}",
+            "updated": "Potomek entity Department s identifikátorem {{ param }} byl upravený.",
+            "deleted": "Potomek entity Department s identifikátorem {{ param }} bol smazaný.",
+            "delete": {
+                "question": "Jste si jisti, že chcete smazat Department {{ id }}?"
+            },
+            "detail": {
+                "title": "Department"
+            },
+            "departmentName": "Department Name",
+            "location": "Location",
+            "employee": "Employee"
+        }
+    }
+}

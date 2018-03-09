@@ -1,0 +1,26 @@
+
+{
+    "myApp": {
+        "job" : {
+            "home": {
+                "title": "Jobs",
+                "createLabel": "Vytvořit Job",
+                "createOrEditLabel": "Vytvořit nebo upravit Job"
+            },
+            "created": "Byl vytvořen potomek entity Job s identifikátorem {{ param }}",
+            "updated": "Potomek entity Job s identifikátorem {{ param }} byl upravený.",
+            "deleted": "Potomek entity Job s identifikátorem {{ param }} bol smazaný.",
+            "delete": {
+                "question": "Jste si jisti, že chcete smazat Job {{ id }}?"
+            },
+            "detail": {
+                "title": "Job"
+            },
+            "jobTitle": "Job Title",
+            "minSalary": "Min Salary",
+            "maxSalary": "Max Salary",
+            "employee": "Employee",
+            "task": "Task"
+        }
+    }
+}
