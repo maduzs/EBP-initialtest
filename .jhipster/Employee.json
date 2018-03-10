@@ -5,7 +5,7 @@
             "relationshipName": "department",
             "otherEntityName": "department",
             "relationshipType": "many-to-one",
-            "otherEntityField": "id"
+            "otherEntityField": "departmentName"
         },
         {
             "relationshipType": "one-to-many",
@@ -17,7 +17,7 @@
             "relationshipType": "many-to-one",
             "relationshipName": "manager",
             "otherEntityName": "employee",
-            "otherEntityField": "id"
+            "otherEntityField": "firstName"
         },
         {
             "relationshipName": "organization",
@@ -62,7 +62,7 @@
     ],
     "changelogDate": "20180309131250",
     "dto": "mapstruct",
-    "service": "no",
+    "service": "serviceImpl",
     "entityTableName": "employee",
     "jpaMetamodelFiltering": false,
     "pagination": "infinite-scroll",

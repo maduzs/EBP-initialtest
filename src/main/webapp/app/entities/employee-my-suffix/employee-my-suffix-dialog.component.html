@@ -54,14 +54,14 @@
             <label class="form-control-label" jhiTranslate="myApp.employee.department" for="field_department">Department</label>
             <select class="form-control" id="field_department" name="department" [(ngModel)]="employee.departmentId" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="departmentOption.id" *ngFor="let departmentOption of departments; trackBy: trackDepartmentById">{{departmentOption.id}}</option>
+                <option [ngValue]="departmentOption.id" *ngFor="let departmentOption of departments; trackBy: trackDepartmentById">{{departmentOption.departmentName}}</option>
             </select>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="myApp.employee.manager" for="field_manager">Manager</label>
             <select class="form-control" id="field_manager" name="manager" [(ngModel)]="employee.managerId" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="employeeOption.id" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
+                <option [ngValue]="employeeOption.id" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.firstName}}</option>
             </select>
         </div>
         <div class="form-group">

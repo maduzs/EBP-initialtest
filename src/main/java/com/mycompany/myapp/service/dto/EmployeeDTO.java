@@ -31,7 +31,11 @@ public class EmployeeDTO implements Serializable {
 
     private Long departmentId;
 
+    private String departmentDepartmentName;
+
     private Long managerId;
+
+    private String managerFirstName;
 
     private Long organizationId;
 
@@ -109,12 +113,28 @@ public class EmployeeDTO implements Serializable {
         this.departmentId = departmentId;
     }
 
+    public String getDepartmentDepartmentName() {
+        return departmentDepartmentName;
+    }
+
+    public void setDepartmentDepartmentName(String departmentDepartmentName) {
+        this.departmentDepartmentName = departmentDepartmentName;
+    }
+
     public Long getManagerId() {
         return managerId;
     }
 
     public void setManagerId(Long employeeId) {
         this.managerId = employeeId;
+    }
+
+    public String getManagerFirstName() {
+        return managerFirstName;
+    }
+
+    public void setManagerFirstName(String employeeFirstName) {
+        this.managerFirstName = employeeFirstName;
     }
 
     public Long getOrganizationId() {
