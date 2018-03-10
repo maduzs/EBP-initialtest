@@ -23,9 +23,15 @@
     <include file="config/liquibase/changelog/20180309131252_added_entity_constraints_JobHistory.xml" relativeToChangelogFile="false"/>
 
 
+    <include file="config/liquibase/changelog/set_visibility.xml" relativeToChangelogFile="false"/>
+
+
 
     <include file="config/liquibase/demo/0010_organization.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/demo/0020_department.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/demo/0030_employee.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+
+
+    <include file="config/liquibase/changelog/20180310150311_added_RLS_security.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>

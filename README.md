@@ -1,17 +1,57 @@
 # myApp
-This application was generated using JHipster 4.14.1, you can find documentation and help at [http://www.jhipster.tech/documentation-archive/v4.14.1](http://www.jhipster.tech/documentation-archive/v4.14.1).
+
+This application is demonstrating how to handle RLS (Row Level Security) which require calling stored procedure at the
+beginning of datasbase session with name of user. For demo purpose 
+
+- ADMIN user has access to all data
+- USER user has access to ORG_ID=1 in tables DEPARTMENT, EMPLOYEE
+- SYSTEM user has access to ORG_ID=2 in tables DEPARTMENT, EMPLOYEE
+
+
+## Postgres RLS test
+
+Run liquibase to install db object and connect to pgAdmin.
+
+Set session variables by calling
+
+```postgresql
+﻿DO $$ BEGIN
+    PERFORM set_visibility('user');
+END $$;
+
+﻿SELECT * FROM department;
+
+﻿DO $$ BEGIN
+    PERFORM set_visibility('system');
+END $$;
+
+﻿SELECT * FROM department;
+
+﻿DO $$ BEGIN
+    PERFORM set_visibility('admin');
+END $$;
+
+﻿SELECT * FROM department;
+```
+
+Check current valie of session variable
+
+```postgresql
+﻿select current_setting('myapp.org_id');
+```
+
 
 ## Development
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
 
-1. [Node.js][]: We use Node to run a development web server and build the project.
-   Depending on your system, you can install Node either from source or as a pre-packaged bundle.
-2. [Yarn][]: We use Yarn to manage Node dependencies.
-   Depending on your system, you can install Yarn either from source or as a pre-packaged bundle.
+1. [Node.js][]: We use Node to run a development web server and build the project. Depending on your system, you can
+   install Node either from source or as a pre-packaged bundle.
+2. [Yarn][]: We use Yarn to manage Node dependencies. Depending on your system, you can install Yarn either from source
+   or as a pre-packaged bundle.
 
-After installing Node, you should be able to run the following command to install development tools.
-You will only need to run this command when dependencies change in [package.json](package.json).
+After installing Node, you should be able to run the following command to install development tools. You will only need
+to run this command when dependencies change in [package.json](package.json).
 
     yarn install
 
@@ -24,9 +64,9 @@ auto-refreshes when files change on your hard drive.
     ./mvnw
     yarn start
 
-[Yarn][] is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies by
-specifying a newer version in [package.json](package.json). You can also run `yarn update` and `yarn install` to manage dependencies.
-Add the `help` flag on any command to see how you can use it. For example, `yarn help update`.
+[Yarn][] is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies
+by specifying a newer version in [package.json](package.json). You can also run `yarn update` and `yarn install` to
+manage dependencies. Add the `help` flag on any command to see how you can use it. For example, `yarn help update`.
 
 The `yarn run` command will list all of the scripts available to run for this project.
 
@@ -54,20 +94,24 @@ For example, to add [Leaflet][] library as a runtime dependency of your applicat
 
     yarn add --exact leaflet
 
-To benefit from TypeScript type definitions from [DefinitelyTyped][] repository in development, you would run following command:
+To benefit from TypeScript type definitions from [DefinitelyTyped][] repository in development, you would run following
+command:
 
     yarn add --dev --exact @types/leaflet
 
-Then you would import the JS and CSS files specified in library's installation instructions so that [Webpack][] knows about them:
-Edit [src/main/webapp/app/vendor.ts](src/main/webapp/app/vendor.ts) file:
+Then you would import the JS and CSS files specified in library's installation instructions so that [Webpack][] knows
+about them: Edit [src/main/webapp/app/vendor.ts](src/main/webapp/app/vendor.ts) file:
+
 ~~~
 import 'leaflet/dist/leaflet.js';
 ~~~
 
 Edit [src/main/webapp/content/css/vendor.css](src/main/webapp/content/css/vendor.css) file:
+
 ~~~
 @import '~leaflet/dist/leaflet.css';
 ~~~
+
 Note: there are still few other things remaining to do for Leaflet that we won't detail here.
 
 For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
@@ -88,13 +132,18 @@ will generate few files:
 
 ### Doing API-First development using swagger-codegen
 
-[Swagger-Codegen]() is configured for this application. You can generate API code from the `src/main/resources/swagger/api.yml` definition file by running:
+[Swagger-Codegen]() is configured for this application. You can generate API code from the
+`src/main/resources/swagger/api.yml` definition file by running:
+
 ```bash
 ./mvnw generate-sources
 ```
+
 Then implements the generated interfaces with `@RestController` classes.
 
-To edit the `api.yml` definition file, you can use a tool such as [Swagger-Editor](). Start a local instance of the swagger-editor using docker by running: `docker-compose -f src/main/docker/swagger-editor.yml up -d`. The editor will then be reachable at [http://localhost:7742](http://localhost:7742).
+To edit the `api.yml` definition file, you can use a tool such as [Swagger-Editor](). Start a local instance of the
+swagger-editor using docker by running: `docker-compose -f src/main/docker/swagger-editor.yml up -d`. The editor will
+then be reachable at [http://localhost:7742](http://localhost:7742).
 
 Refer to [Doing API-First development][] for more details.
 
@@ -104,8 +153,8 @@ To optimize the myApp application for production, run:
 
     ./mvnw -Pprod clean package
 
-This will concatenate and minify the client CSS and JavaScript files. It will also modify `index.html` so it references these new files.
-To ensure everything worked, run:
+This will concatenate and minify the client CSS and JavaScript files. It will also modify `index.html` so it references
+these new files. To ensure everything worked, run:
 
     java -jar target/*.war
 
@@ -121,17 +170,18 @@ To launch your application's tests, run:
 
 ### Client tests
 
-Unit tests are run by [Karma][] and written with [Jasmine][]. They're located in [src/test/javascript/](src/test/javascript/) and can be run with:
+Unit tests are run by [Karma][] and written with [Jasmine][]. They're located in
+[src/test/javascript/](src/test/javascript/) and can be run with:
 
     yarn test
-
 
 
 For more information, refer to the [Running tests page][].
 
 ## Using Docker to simplify development (optional)
 
-You can use Docker to improve your JHipster development experience. A number of docker-compose configuration are available in the [src/main/docker](src/main/docker) folder to launch required third party services.
+You can use Docker to improve your JHipster development experience. A number of docker-compose configuration are
+available in the [src/main/docker](src/main/docker) folder to launch required third party services.
 
 For example, to start a postgresql database in a docker container, run:
 
@@ -141,8 +191,8 @@ To stop it and remove the container, run:
 
     docker-compose -f src/main/docker/postgresql.yml down
 
-You can also fully dockerize your application and all the services that it depends on.
-To achieve this, first build a docker image of your app by running:
+You can also fully dockerize your application and all the services that it depends on. To achieve this, first build a
+docker image of your app by running:
 
     ./mvnw verify -Pprod dockerfile:build
 
@@ -150,11 +200,15 @@ Then run:
 
     docker-compose -f src/main/docker/app.yml up -d
 
-For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
+For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the
+docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or
+several JHipster applications.
 
 ## Continuous Integration (optional)
 
-To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
+To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate
+configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][]
+page for more information.
 
 [JHipster Homepage and latest documentation]: http://www.jhipster.tech
 [JHipster 4.14.1 archive]: http://www.jhipster.tech/documentation-archive/v4.14.1
