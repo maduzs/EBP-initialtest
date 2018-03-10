@@ -10,6 +10,7 @@ import { DepartmentMySuffix } from './department-my-suffix.model';
 import { DepartmentMySuffixPopupService } from './department-my-suffix-popup.service';
 import { DepartmentMySuffixService } from './department-my-suffix.service';
 import { LocationMySuffix, LocationMySuffixService } from '../location-my-suffix';
+import { Organization, OrganizationService } from '../organization';
 
 @Component({
     selector: 'jhi-department-my-suffix-dialog',
@@ -22,11 +23,14 @@ export class DepartmentMySuffixDialogComponent implements OnInit {
 
     locations: LocationMySuffix[];
 
+    organizations: Organization[];
+
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private departmentService: DepartmentMySuffixService,
         private locationService: LocationMySuffixService,
+        private organizationService: OrganizationService,
         private eventManager: JhiEventManager
     ) {
     }
@@ -46,6 +50,8 @@ export class DepartmentMySuffixDialogComponent implements OnInit {
                         }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
                 }
             }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.organizationService.query()
+            .subscribe((res: HttpResponse<Organization[]>) => { this.organizations = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -83,6 +89,10 @@ export class DepartmentMySuffixDialogComponent implements OnInit {
     }
 
     trackLocationById(index: number, item: LocationMySuffix) {
+        return item.id;
+    }
+
+    trackOrganizationById(index: number, item: Organization) {
         return item.id;
     }
 }

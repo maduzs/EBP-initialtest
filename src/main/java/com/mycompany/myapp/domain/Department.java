@@ -41,6 +41,10 @@ public class Department implements Serializable {
     @JsonIgnore
     private Set<Employee> employees = new HashSet<>();
 
+    @ManyToOne(optional = false)
+    @NotNull
+    private Organization organization;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -99,6 +103,19 @@ public class Department implements Serializable {
 
     public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public Department organization(Organization organization) {
+        this.organization = organization;
+        return this;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

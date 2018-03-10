@@ -18,7 +18,8 @@
             },
             "departmentName": "Department Name",
             "location": "Location",
-            "employee": "Employee"
+            "employee": "Employee",
+            "organization": "Organization"
         }
     }
 }

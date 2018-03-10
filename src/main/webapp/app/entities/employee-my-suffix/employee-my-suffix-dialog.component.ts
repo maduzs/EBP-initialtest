@@ -10,6 +10,7 @@ import { EmployeeMySuffix } from './employee-my-suffix.model';
 import { EmployeeMySuffixPopupService } from './employee-my-suffix-popup.service';
 import { EmployeeMySuffixService } from './employee-my-suffix.service';
 import { DepartmentMySuffix, DepartmentMySuffixService } from '../department-my-suffix';
+import { Organization, OrganizationService } from '../organization';
 
 @Component({
     selector: 'jhi-employee-my-suffix-dialog',
@@ -24,11 +25,14 @@ export class EmployeeMySuffixDialogComponent implements OnInit {
 
     employees: EmployeeMySuffix[];
 
+    organizations: Organization[];
+
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private employeeService: EmployeeMySuffixService,
         private departmentService: DepartmentMySuffixService,
+        private organizationService: OrganizationService,
         private eventManager: JhiEventManager
     ) {
     }
@@ -39,6 +43,8 @@ export class EmployeeMySuffixDialogComponent implements OnInit {
             .subscribe((res: HttpResponse<DepartmentMySuffix[]>) => { this.departments = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.employeeService.query()
             .subscribe((res: HttpResponse<EmployeeMySuffix[]>) => { this.employees = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.organizationService.query()
+            .subscribe((res: HttpResponse<Organization[]>) => { this.organizations = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -80,6 +86,10 @@ export class EmployeeMySuffixDialogComponent implements OnInit {
     }
 
     trackEmployeeById(index: number, item: EmployeeMySuffix) {
+        return item.id;
+    }
+
+    trackOrganizationById(index: number, item: Organization) {
         return item.id;
     }
 }

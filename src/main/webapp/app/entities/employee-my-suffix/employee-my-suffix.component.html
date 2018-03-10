@@ -26,6 +26,7 @@
             <th jhiSortBy="commissionPct"><span jhiTranslate="myApp.employee.commissionPct">Commission Pct</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="departmentId"><span jhiTranslate="myApp.employee.department">Department</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="managerId"><span jhiTranslate="myApp.employee.manager">Manager</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="organizationName"><span jhiTranslate="myApp.employee.organization">Organization</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -47,6 +48,11 @@
                 <td>
                     <div *ngIf="employee.managerId">
                         <a [routerLink]="['../employee-my-suffix', employee.managerId  ]" >{{employee.managerId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="employee.organizationId">
+                        <a [routerLink]="['../organization', employee.organizationId  ]" >{{employee.organizationName}}</a>
                     </div>
                 </td>
                 <td class="text-right">

@@ -13,6 +13,8 @@ export class EmployeeMySuffix implements BaseEntity {
         public departmentId?: number,
         public jobs?: BaseEntity[],
         public managerId?: number,
+        public organizationName?: string,
+        public organizationId?: number,
     ) {
     }
 }

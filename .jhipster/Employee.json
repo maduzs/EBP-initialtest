@@ -18,6 +18,15 @@
             "relationshipName": "manager",
             "otherEntityName": "employee",
             "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "organization",
+            "otherEntityName": "organization",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
         }
     ],
     "fields": [
@@ -52,11 +61,11 @@
         }
     ],
     "changelogDate": "20180309131250",
-    "javadoc": "The Employee entity.",
-    "entityTableName": "employee",
     "dto": "mapstruct",
-    "pagination": "infinite-scroll",
     "service": "no",
+    "entityTableName": "employee",
     "jpaMetamodelFiltering": false,
+    "pagination": "infinite-scroll",
+    "javadoc": "The Employee entity.",
     "angularJSSuffix": "mySuffix"
 }

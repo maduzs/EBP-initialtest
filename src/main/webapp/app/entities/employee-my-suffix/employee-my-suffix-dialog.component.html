@@ -64,6 +64,19 @@
                 <option [ngValue]="employeeOption.id" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
             </select>
         </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="myApp.employee.organization" for="field_organization">Organization</label>
+            <select class="form-control" id="field_organization" name="organization" [(ngModel)]="employee.organizationId"  required>
+                <option *ngIf="!editForm.value.organization" [ngValue]="null" selected></option>
+                <option [ngValue]="organizationOption.id" *ngFor="let organizationOption of organizations; trackBy: trackOrganizationById">{{organizationOption.name}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.organization?.dirty && editForm.controls.organization?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.organization?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

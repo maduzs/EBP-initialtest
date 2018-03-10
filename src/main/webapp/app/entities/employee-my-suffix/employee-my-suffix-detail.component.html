@@ -44,6 +44,12 @@
                 <a [routerLink]="['/employee-my-suffix', employee.managerId]">{{employee.managerId}}</a>
             </div>
         </dd>
+        <dt><span jhiTranslate="myApp.employee.organization">Organization</span></dt>
+        <dd>
+            <div *ngIf="employee.organizationId">
+                <a [routerLink]="['/organization', employee.organizationId]">{{employee.organizationName}}</a>
+            </div>
+        </dd>
     </dl>
 
     <button type="submit"

@@ -19,6 +19,7 @@
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="myApp.department.departmentName">Department Name</span></th>
             <th><span jhiTranslate="myApp.department.location">Location</span></th>
+            <th><span jhiTranslate="myApp.department.organization">Organization</span></th>
             <th></th>
             </tr>
             </thead>
@@ -29,6 +30,11 @@
                 <td>
                     <div *ngIf="department.locationId">
                         <a [routerLink]="['../location-my-suffix', department.locationId  ]" >{{department.locationId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="department.organizationId">
+                        <a [routerLink]="['../organization', department.organizationId  ]" >{{department.organizationName}}</a>
                     </div>
                 </td>
                 <td class="text-right">

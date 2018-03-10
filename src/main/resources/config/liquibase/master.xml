@@ -25,5 +25,7 @@
 
 
     <include file="config/liquibase/demo/0010_organization.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/demo/0020_department.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/demo/0030_employee.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>
