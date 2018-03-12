@@ -26,6 +26,7 @@
             "department": "Department",
             "job": "Job",
             "manager": "Manager",
+            "organization": "Organization",
             "help": {
                 "firstName": "The firstname attribute."
             }

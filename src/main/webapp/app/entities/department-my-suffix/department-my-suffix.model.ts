@@ -6,6 +6,8 @@ export class DepartmentMySuffix implements BaseEntity {
         public departmentName?: string,
         public locationId?: number,
         public employees?: BaseEntity[],
+        public organizationName?: string,
+        public organizationId?: number,
     ) {
     }
 }

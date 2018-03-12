@@ -8,6 +8,7 @@ import { MyAppTaskMySuffixModule } from './task-my-suffix/task-my-suffix.module'
 import { MyAppEmployeeMySuffixModule } from './employee-my-suffix/employee-my-suffix.module';
 import { MyAppJobMySuffixModule } from './job-my-suffix/job-my-suffix.module';
 import { MyAppJobHistoryMySuffixModule } from './job-history-my-suffix/job-history-my-suffix.module';
+import { MyAppOrganizationModule } from './organization/organization.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -20,6 +21,7 @@ import { MyAppJobHistoryMySuffixModule } from './job-history-my-suffix/job-histo
         MyAppEmployeeMySuffixModule,
         MyAppJobMySuffixModule,
         MyAppJobHistoryMySuffixModule,
+        MyAppOrganizationModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

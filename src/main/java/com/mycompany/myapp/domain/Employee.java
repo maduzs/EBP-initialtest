@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -61,6 +62,10 @@ public class Employee implements Serializable {
 
     @ManyToOne
     private Employee manager;
+
+    @ManyToOne(optional = false)
+    @NotNull
+    private Organization organization;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -211,6 +216,19 @@ public class Employee implements Serializable {
 
     public void setManager(Employee employee) {
         this.manager = employee;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public Employee organization(Organization organization) {
+        this.organization = organization;
+        return this;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

@@ -10,6 +10,7 @@ import { DepartmentMySuffixDialogComponent } from '../../../../../../main/webapp
 import { DepartmentMySuffixService } from '../../../../../../main/webapp/app/entities/department-my-suffix/department-my-suffix.service';
 import { DepartmentMySuffix } from '../../../../../../main/webapp/app/entities/department-my-suffix/department-my-suffix.model';
 import { LocationMySuffixService } from '../../../../../../main/webapp/app/entities/location-my-suffix';
+import { OrganizationService } from '../../../../../../main/webapp/app/entities/organization';
 
 describe('Component Tests', () => {
 
@@ -26,6 +27,7 @@ describe('Component Tests', () => {
                 declarations: [DepartmentMySuffixDialogComponent],
                 providers: [
                     LocationMySuffixService,
+                    OrganizationService,
                     DepartmentMySuffixService
                 ]
             })

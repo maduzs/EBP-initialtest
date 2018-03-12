@@ -3,7 +3,9 @@ package com.mycompany.myapp.web.rest;
 import com.mycompany.myapp.MyApp;
 
 import com.mycompany.myapp.domain.Employee;
+import com.mycompany.myapp.domain.Organization;
 import com.mycompany.myapp.repository.EmployeeRepository;
+import com.mycompany.myapp.service.EmployeeService;
 import com.mycompany.myapp.service.dto.EmployeeDTO;
 import com.mycompany.myapp.service.mapper.EmployeeMapper;
 import com.mycompany.myapp.web.rest.errors.ExceptionTranslator;
@@ -70,6 +72,9 @@ public class EmployeeResourceIntTest {
     private EmployeeMapper employeeMapper;
 
     @Autowired
+    private EmployeeService employeeService;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -88,7 +93,7 @@ public class EmployeeResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final EmployeeResource employeeResource = new EmployeeResource(employeeRepository, employeeMapper);
+        final EmployeeResource employeeResource = new EmployeeResource(employeeService);
         this.restEmployeeMockMvc = MockMvcBuilders.standaloneSetup(employeeResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -111,6 +116,11 @@ public class EmployeeResourceIntTest {
             .hireDate(DEFAULT_HIRE_DATE)
             .salary(DEFAULT_SALARY)
             .commissionPct(DEFAULT_COMMISSION_PCT);
+        // Add required entity
+        Organization organization = OrganizationResourceIntTest.createEntity(em);
+        em.persist(organization);
+        em.flush();
+        employee.setOrganization(organization);
         return employee;
     }
 

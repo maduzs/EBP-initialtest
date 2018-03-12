@@ -15,6 +15,15 @@
             "relationshipName": "employee",
             "otherEntityName": "employee",
             "otherEntityRelationshipName": "department"
+        },
+        {
+            "relationshipName": "organization",
+            "otherEntityName": "organization",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
         }
     ],
     "fields": [
@@ -27,10 +36,10 @@
         }
     ],
     "changelogDate": "20180309131248",
-    "entityTableName": "department",
     "dto": "mapstruct",
-    "pagination": "no",
     "service": "serviceImpl",
+    "entityTableName": "department",
     "jpaMetamodelFiltering": false,
+    "pagination": "no",
     "angularJSSuffix": "mySuffix"
 }

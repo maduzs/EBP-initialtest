@@ -2,6 +2,7 @@ package com.mycompany.myapp.service.dto;
 
 
 import java.time.Instant;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -30,7 +31,15 @@ public class EmployeeDTO implements Serializable {
 
     private Long departmentId;
 
+    private String departmentDepartmentName;
+
     private Long managerId;
+
+    private String managerFirstName;
+
+    private Long organizationId;
+
+    private String organizationName;
 
     public Long getId() {
         return id;
@@ -104,12 +113,44 @@ public class EmployeeDTO implements Serializable {
         this.departmentId = departmentId;
     }
 
+    public String getDepartmentDepartmentName() {
+        return departmentDepartmentName;
+    }
+
+    public void setDepartmentDepartmentName(String departmentDepartmentName) {
+        this.departmentDepartmentName = departmentDepartmentName;
+    }
+
     public Long getManagerId() {
         return managerId;
     }
 
     public void setManagerId(Long employeeId) {
         this.managerId = employeeId;
+    }
+
+    public String getManagerFirstName() {
+        return managerFirstName;
+    }
+
+    public void setManagerFirstName(String employeeFirstName) {
+        this.managerFirstName = employeeFirstName;
+    }
+
+    public Long getOrganizationId() {
+        return organizationId;
+    }
+
+    public void setOrganizationId(Long organizationId) {
+        this.organizationId = organizationId;
+    }
+
+    public String getOrganizationName() {
+        return organizationName;
+    }
+
+    public void setOrganizationName(String organizationName) {
+        this.organizationName = organizationName;
     }
 
     @Override

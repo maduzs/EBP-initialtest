@@ -3,6 +3,7 @@ package com.mycompany.myapp.web.rest;
 import com.mycompany.myapp.MyApp;
 
 import com.mycompany.myapp.domain.Department;
+import com.mycompany.myapp.domain.Organization;
 import com.mycompany.myapp.repository.DepartmentRepository;
 import com.mycompany.myapp.service.DepartmentService;
 import com.mycompany.myapp.service.dto.DepartmentDTO;
@@ -89,6 +90,11 @@ public class DepartmentResourceIntTest {
     public static Department createEntity(EntityManager em) {
         Department department = new Department()
             .departmentName(DEFAULT_DEPARTMENT_NAME);
+        // Add required entity
+        Organization organization = OrganizationResourceIntTest.createEntity(em);
+        em.persist(organization);
+        em.flush();
+        department.setOrganization(organization);
         return department;
     }
 

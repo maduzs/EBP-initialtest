@@ -1,0 +1,22 @@
+
+{
+    "myApp": {
+        "organization" : {
+            "home": {
+                "title": "Organizations",
+                "createLabel": "Vytvořit Organization",
+                "createOrEditLabel": "Vytvořit nebo upravit Organization"
+            },
+            "created": "Byl vytvořen potomek entity Organization s identifikátorem {{ param }}",
+            "updated": "Potomek entity Organization s identifikátorem {{ param }} byl upravený.",
+            "deleted": "Potomek entity Organization s identifikátorem {{ param }} bol smazaný.",
+            "delete": {
+                "question": "Jste si jisti, že chcete smazat Organization {{ id }}?"
+            },
+            "detail": {
+                "title": "Organization"
+            },
+            "name": "Name"
+        }
+    }
+}
