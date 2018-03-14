@@ -26,7 +26,8 @@ spring:
         livereload:
             enabled: false
     datasource:
-        type: com.zaxxer.hikari.HikariDataSource
+        #type: com.zaxxer.hikari.HikariDataSource
+        type: com.mycompany.myapp.config.datasource.EbpDataSource
         url: jdbc:postgresql://localhost:5432/myApp?currentSchema=ebp
         username: ebp
         password: ebp
